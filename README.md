@@ -33,13 +33,13 @@ The model's performance on different datasets (Kitties, Cityscapes, Ddad, DIML, 
 ## Modules
 
 ### 1. Semantic-Depth Consistency Loss
-We devised a semantic-guided monocular depth estimation model based on patch knowledge distillation . This model incorporates a semantic depth consistency loss, ensuring that pixels with the same semantic label possess consistent relative depth.
+We propose a novel semantic-depth consistency loss. Unlike standard constraints, this mechanism dynamically corrects spatial misalignments between semantic and depth features, ensuring that pixels with the same semantic label possess consistent relative depth.
 
 ### 2. Patch Knowledge Distillation Module
-We improved the patch-based depth refinement method by employing dual networks (self+DPT) to estimate multi-scale patch depths. These patch depths are fused using contour masks. We incorporate this approach into model training, achieving patch-based knowledge distillation via the patch loss function.
+We advance patch-based depth refinement by introducing a patch-based knowledge distillation strategy that functions as a hard-sample mining mechanism. By prioritizing patches with high structural complexity (guided by contours) for targeted distillation through a dual-teacher setup combining our own network and DPT, we optimize local depth details in difficult regions more effectively than uniform refinement.
 
 ### 3. Global-local Attention Mechanism
-We introduced a global-local attention module in the decoder to enhance the extraction capability of deep features. 
+To enhance the feature extraction capability of our self-supervised network, we introduce a Global-Local Attention (GLA) module in the decoder. This module facilitates the synergistic fusion of global semantic context and local patch details, ensuring robust performance across different scales.
 
 ## Requirements
 - Python 3.9
